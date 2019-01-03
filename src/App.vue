@@ -49,9 +49,11 @@ export default {
       console.log(this.winner);
     },
     setSymbol(num) {
-      return num === 0 ? "" : num === 1 ? "O" : "X";
+      return num === 0 ? "" : num === 1 ? "O" : num === 2 ? "平手" :"X";
     },
     getWinner() {
+      let times = this.grids.every(i => i !== 0);
+      console.log(times,"times");
       let result = lines.reduce((accumulator, [a, b, c]) => {
         console.log(accumulator, [a, b, c]);
 
@@ -61,6 +63,9 @@ export default {
         if (sum === -3) return -1;
         return 0;
       }, 0);
+      if (result === 0 && times) {
+        return 2;
+      }
       return result;
       // for (let i = 0; i < lines.length; i++) {
       //   const line = lines[i];
