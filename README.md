@@ -1,4 +1,4 @@
-# y
+# tictactoe
 
 > A Vue.js project
 
